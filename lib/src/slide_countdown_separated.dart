@@ -37,6 +37,7 @@ class SlideCountdownSeparated extends SlideCountdownBase {
     super.slideDirection = SlideDirection.down,
     super.padding = const EdgeInsets.all(5),
     super.separatorPadding = const EdgeInsets.symmetric(horizontal: 3),
+    super.showSeparator = true,
     super.showZeroValue = false,
     super.decoration = kDefaultSeparatedBoxDecoration,
     super.curve = Curves.easeOut,
@@ -163,8 +164,9 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
               : separator,
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
-          showSeparator: (showHours || showMinutes || showSeconds) ||
-              (isSeparatorTitle && showDays),
+          showSeparator: widget.showSeparator &&
+              ((showHours || showMinutes || showSeconds) ||
+                  (isSeparatorTitle && showDays)),
         );
 
         final hours = DigitSeparatedItem(
@@ -184,8 +186,8 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
               : separator,
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
-          showSeparator:
-              showMinutes || showSeconds || (isSeparatorTitle && showHours),
+          showSeparator: widget.showSeparator &&
+              (showMinutes || showSeconds || (isSeparatorTitle && showHours)),
         );
 
         final minutes = DigitSeparatedItem(
@@ -205,7 +207,8 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
               : separator,
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
-          showSeparator: showSeconds || (isSeparatorTitle && showMinutes),
+          showSeparator: widget.showSeparator &&
+              (showSeconds || (isSeparatorTitle && showMinutes)),
         );
 
         final seconds = DigitSeparatedItem(
@@ -225,7 +228,8 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
               : separator,
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
-          showSeparator: isSeparatorTitle && showSeconds,
+          showSeparator:
+              widget.showSeparator && (isSeparatorTitle && showSeconds),
         );
 
         final daysWidget = showDays ? days : const SizedBox.shrink();

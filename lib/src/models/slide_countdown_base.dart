@@ -22,6 +22,7 @@ abstract class SlideCountdownBase extends StatefulWidget {
     required this.slideDirection,
     required this.padding,
     required this.separatorPadding,
+    required this.showSeparator,
     required this.showZeroValue,
     required this.decoration,
     required this.curve,
@@ -97,6 +98,8 @@ abstract class SlideCountdownBase extends StatefulWidget {
 
   /// The amount of space by which to inset the [separator].
   final EdgeInsets separatorPadding;
+
+  final bool showSeparator;
 
   /// if you initialize it with false, the duration which is empty will not be displayed
   final bool showZeroValue;

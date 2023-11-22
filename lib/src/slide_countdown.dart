@@ -39,6 +39,7 @@ class SlideCountdown extends SlideCountdownBase {
     super.separatorType = SeparatorType.symbol,
     super.slideDirection = SlideDirection.down,
     super.padding = kDefaultPadding,
+    super.showSeparator = true,
     super.separatorPadding = kDefaultSeparatorPadding,
     super.showZeroValue = false,
     super.decoration = kDefaultBoxDecoration,

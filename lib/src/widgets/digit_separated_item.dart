@@ -91,14 +91,16 @@ class DigitSeparatedItem extends BaseDigits {
       ),
     );
 
-    final separatorWidget = showSeparator
+    Widget separatorWidget = showSeparator
         ? Separator(
             padding: separatorPadding,
             show: true,
             separator: separator,
             style: separatorStyle,
           )
-        : SizedBox.shrink();
+        : SizedBox(
+            width: timeUnit == TimeUnit.seconds ? 0 : 10.0,
+          );
 
     final box = BoxSeparated(
       padding: padding,
@@ -110,10 +112,39 @@ class DigitSeparatedItem extends BaseDigits {
       ),
     );
 
+    String label = "";
+    switch (timeUnit) {
+      case TimeUnit.days:
+        label = "ngày";
+      case TimeUnit.hours:
+        label = "giờ";
+      case TimeUnit.minutes:
+        label = "phút";
+      case TimeUnit.seconds:
+        label = "giây";
+    }
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children:
-          textDirection.isRtl ? [separatorWidget, box] : [box, separatorWidget],
+      children: textDirection.isRtl
+          ? [
+              separatorWidget,
+              box,
+            ]
+          : [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  box,
+                  const SizedBox(height: 4),
+                  Text(
+                    label,
+                    style: TextStyle(fontSize: 10.8),
+                  )
+                ],
+              ),
+              separatorWidget,
+            ],
     );
   }
 }
