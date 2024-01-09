@@ -16,6 +16,7 @@ class DigitSeparatedItem extends BaseDigits {
     required super.decoration,
     required super.style,
     required super.separatorStyle,
+    super.labelStyle,
     required super.slideDirection,
     required super.curve,
     required super.countUp,
@@ -139,7 +140,7 @@ class DigitSeparatedItem extends BaseDigits {
                   const SizedBox(height: 4),
                   Text(
                     label,
-                    style: TextStyle(fontSize: 10.8),
+                    style: labelStyle?? TextStyle(fontSize: 10.8),
                   )
                 ],
               ),

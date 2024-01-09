@@ -18,6 +18,7 @@ abstract class BaseDigits extends StatelessWidget {
     required this.decoration,
     required this.style,
     required this.separatorStyle,
+    this.labelStyle,
     required this.slideDirection,
     required this.curve,
     required this.countUp,
@@ -46,6 +47,7 @@ abstract class BaseDigits extends StatelessWidget {
 
   /// The style for the separator.
   final TextStyle separatorStyle;
+  final TextStyle? labelStyle;
 
   /// The direction in which the digits should slide during the animation.
   final SlideDirection slideDirection;

@@ -11,6 +11,7 @@ abstract class SlideCountdownBase extends StatefulWidget {
     required this.duration,
     required this.textStyle,
     required this.separatorStyle,
+    this.labelStyle,
     required this.style,
     required this.icon,
     required this.suffixIcon,
@@ -61,6 +62,7 @@ abstract class SlideCountdownBase extends StatefulWidget {
   /// if this is null [SlideCountdown] has a default
   /// text style which will be of all text
   final TextStyle separatorStyle;
+  final TextStyle? labelStyle;
 
   /// [icon] is a parameter that can be initialized by any widget e.g [Icon],
   /// this will be in the first order, default empty widget
